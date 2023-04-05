@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_folder', default='/global/cfs/cdirs/m3929/LHCO/', help='Folder to load the data')
-    parser.add_argument('--plot_folder', default='../', help='Folder to store plots')
+    parser.add_argument('--plot_folder', default='../plots', help='Folder to store plots')
     parser.add_argument('--config', default='config_lhco.json', help='Config file with training parameters')
     parser.add_argument('--nevts', default=3000,type=int, help='Number of signal events to load')
     parser.add_argument('--stage', default=3,type=int, help='IPF iteration to load')
@@ -126,7 +126,7 @@ if __name__ == '__main__':
                                    ylabel='Normalized events',
                                    reference_name='SB1')
 
-        fig.savefig('../plots/SBs{}.pdf'.format(i))
+        fig.savefig('{}/SBs{}.pdf'.format(flags.plot_folder,i))
 
     for i in range(0,5):        
         feed_dict={
@@ -142,7 +142,7 @@ if __name__ == '__main__':
                                    ylabel='Normalized events',
                                    reference_name='SR')
 
-        fig.savefig('../plots/SR{}.pdf'.format(i))
+        fig.savefig('{}/SR{}.pdf'.format(flags.plot_folder,i))
 
         
 
@@ -212,7 +212,7 @@ def Classifier():
     plt.legend(loc='best')
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('../plots/roc.pdf')
+    plt.savefig('{}/roc.pdf'.format(flags.plot_folder))
 
     plt.figure(figsize=(10,8))
     plt.plot(1.0/fpr, tpr/np.sqrt(fpr),"-", label='Diffusion', linewidth=1.5)
@@ -223,6 +223,6 @@ def Classifier():
     plt.legend(loc='best')
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig('../plots/sic.pdf')
+    plt.savefig('{}/sic.pdf'.format(flags.plot_folder))
     
 Classifier()

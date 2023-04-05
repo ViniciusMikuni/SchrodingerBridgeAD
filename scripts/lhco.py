@@ -158,6 +158,7 @@ if __name__ == '__main__':
         NUM_STAGE,
         NUM_EPOCHS,
         nevts//BATCH_SIZE,
+        #10 #use a lower number if you want to just test the model
         #nevts//(hvd.size()*BATCH_SIZE),
         start=flags.stage
     )
