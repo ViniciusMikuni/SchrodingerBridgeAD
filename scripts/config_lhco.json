@@ -1,0 +1,13 @@
+{
+    'NDIM':5,
+    'BATCH':256,
+    'LR':0.0001,
+    'EPOCH':100,
+    'gamma_min':5e-4,
+    'gamma_max':5e-4,
+    'gamma_space':'linspace',    
+    'NLAYERS':3,
+    'LAYER_SIZE':512,
+    'EMBED':64,
+    'NSTEPS':100,
+}
